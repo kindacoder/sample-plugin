@@ -1,25 +1,22 @@
 (function () {
-  // Create the plugin container
-  const pluginContainer = document.createElement('div');
-  pluginContainer.id = 'simple-plugin-container';
-  pluginContainer.style.position = 'fixed';
-  pluginContainer.style.bottom = '20px';
-  pluginContainer.style.right = '20px';
-  pluginContainer.style.zIndex = '9999';
+  console.log('Plugin loaded'); // Debugging: Check if this logs in the console
 
-  // Create the button to trigger the popup
+  // Create the button
   const button = document.createElement('button');
   button.innerText = 'Open Popup';
+  button.style.position = 'fixed';
+  button.style.bottom = '20px';
+  button.style.right = '20px';
   button.style.padding = '10px 20px';
   button.style.backgroundColor = '#007bff';
   button.style.color = 'white';
   button.style.border = 'none';
   button.style.borderRadius = '5px';
   button.style.cursor = 'pointer';
+  button.style.zIndex = '9999';
 
   // Create the popup
   const popup = document.createElement('div');
-  popup.id = 'plugin-popup';
   popup.style.position = 'fixed';
   popup.style.top = '50%';
   popup.style.left = '50%';
@@ -31,13 +28,13 @@
   popup.style.borderRadius = '8px';
   popup.style.textAlign = 'center';
   popup.style.display = 'none';
+  popup.style.zIndex = '9999';
 
   // Add content to the popup
-  const popupContent = document.createElement('p');
-  popupContent.innerText = 'Hello! This is your popup.';
-  popup.appendChild(popupContent);
+  const message = document.createElement('p');
+  message.innerText = 'Hello! This is your popup.';
+  popup.appendChild(message);
 
-  // Close button for the popup
   const closeButton = document.createElement('button');
   closeButton.innerText = 'Close';
   closeButton.style.marginTop = '10px';
@@ -47,7 +44,6 @@
   closeButton.style.border = 'none';
   closeButton.style.borderRadius = '5px';
   closeButton.style.cursor = 'pointer';
-
   popup.appendChild(closeButton);
 
   // Add event listeners
@@ -59,8 +55,7 @@
     popup.style.display = 'none';
   });
 
-  // Append elements to the container
-  pluginContainer.appendChild(button);
-  document.body.appendChild(pluginContainer);
+  // Add the button and popup to the DOM
+  document.body.appendChild(button);
   document.body.appendChild(popup);
 })();
